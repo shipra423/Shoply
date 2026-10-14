@@ -1,0 +1,696 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   SHOPLY GLOBAL STYLES
+========================================= */
+
+@layer base {
+  :root {
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    color: #17262c;
+    background: #ffffff;
+    font-synthesis: none;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply m-0 min-h-screen bg-white text-slate-900;
+    font-weight: 400;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  button:disabled {
+    @apply cursor-not-allowed opacity-50;
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+@layer components {
+  .container {
+    @apply mx-auto w-full max-w-[1240px] px-4 sm:px-6;
+  }
+
+  /* ======================================
+     NAVBAR
+  ====================================== */
+
+  .header {
+    @apply sticky top-0 z-50 border-b border-slate-100 bg-white;
+  }
+
+  .nav {
+    @apply flex h-[77px] items-center justify-between gap-6;
+  }
+
+  .brand {
+    @apply flex items-center gap-2 text-[28px] font-light tracking-[-1px] text-emerald-950;
+  }
+
+  .brand span {
+    @apply text-emerald-600;
+  }
+
+  .navlinks {
+    @apply flex items-center gap-7 text-base font-light text-slate-800;
+  }
+
+  .navlinks a {
+    @apply font-light transition-colors duration-200 hover:text-emerald-700;
+  }
+
+  .nav-actions {
+    @apply flex items-center gap-4;
+  }
+
+  .cart-icon {
+    @apply relative;
+  }
+
+  .cart-icon small {
+    @apply absolute -right-3 -top-3 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-emerald-700 px-1 text-[10px] text-white;
+  }
+
+  .mobile-menu {
+    @apply hidden border-0 bg-transparent;
+  }
+
+  /* ======================================
+     HOME HERO
+  ====================================== */
+
+  .hero {
+    @apply bg-[#f2f0eb];
+  }
+
+  .hero-inner {
+    @apply grid min-h-[550px] grid-cols-1 items-stretch md:grid-cols-2;
+  }
+
+  .hero-copy {
+    @apply py-14 md:py-24 md:pr-9;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[2px] text-emerald-700;
+  }
+
+  .hero h1 {
+    @apply my-6 text-[42px] font-medium leading-[1.08] tracking-[-2px] text-slate-950 md:text-6xl lg:text-7xl;
+  }
+
+  .hero h1 em {
+    @apply not-italic text-emerald-700;
+  }
+
+  .hero p {
+    @apply max-w-[410px] text-base font-normal leading-8 text-slate-500;
+  }
+
+  .hero-proof {
+    @apply mt-9 flex flex-wrap items-center gap-3 text-xs text-slate-500;
+  }
+
+  .hero-proof b {
+    @apply font-medium text-slate-900;
+  }
+
+  .hero-proof span {
+    @apply mx-2 text-emerald-600;
+  }
+
+  .hero-photo {
+    @apply relative min-h-[360px] overflow-hidden md:min-h-[470px];
+  }
+
+  .hero-photo > img {
+    @apply h-full w-full object-cover;
+    object-position: center 35%;
+  }
+
+  .floating-tag {
+    @apply absolute bottom-8 left-7 rounded-xl bg-white/95 px-6 py-4 text-xs shadow-lg;
+  }
+
+  .floating-tag strong {
+    @apply mt-1 block text-sm font-semibold;
+  }
+
+  /* ======================================
+     BUTTONS
+  ====================================== */
+
+  .btn {
+    @apply mt-4 inline-flex items-center justify-center gap-3 rounded-lg border-0 px-6 py-4 text-sm font-medium transition duration-200;
+  }
+
+  .btn.dark {
+    @apply bg-[#142c31] text-white hover:bg-emerald-800;
+  }
+
+  .btn.light {
+    @apply bg-white text-slate-900 hover:bg-slate-100;
+  }
+
+  .btn.outline {
+    @apply border border-slate-200 bg-white text-slate-900 hover:border-emerald-600;
+  }
+
+  .btn.danger {
+    @apply bg-red-700 text-white hover:bg-red-800;
+  }
+
+  .btn.wide {
+    @apply w-full;
+  }
+
+  /* ======================================
+     SECTIONS
+  ====================================== */
+
+  .section {
+    @apply py-10 md:py-16;
+  }
+
+  .section-head {
+    @apply mb-7 flex flex-wrap items-end justify-between gap-4;
+  }
+
+  .section-head h2 {
+    @apply mt-2 text-3xl font-medium tracking-tight text-slate-950;
+  }
+
+  .section-head > a {
+    @apply inline-flex items-center gap-2 text-sm font-medium hover:text-emerald-700;
+  }
+
+  /* ======================================
+     CATEGORIES
+  ====================================== */
+
+  .categories {
+    @apply grid grid-cols-3 gap-4 lg:grid-cols-6;
+  }
+
+  .categories a {
+    @apply text-center text-sm font-medium;
+  }
+
+  .categories a span {
+    @apply mb-3 grid h-24 place-items-center rounded-xl bg-slate-100 text-3xl transition-transform duration-200 hover:-translate-y-1 md:h-32 md:text-4xl;
+  }
+
+  /* ======================================
+     PRODUCT GRID
+  ====================================== */
+
+  .product-grid {
+    @apply grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-6;
+  }
+
+  .product-card {
+    @apply min-w-0;
+  }
+
+  .product-image-wrapper {
+    @apply relative w-full;
+  }
+
+  .product-image {
+    @apply relative block h-[190px] overflow-hidden rounded-xl bg-slate-100 sm:h-[260px];
+  }
+
+  .product-image img {
+    @apply h-full w-full object-cover transition-transform duration-300 hover:scale-105;
+  }
+
+  .product-pill {
+    @apply absolute left-3 top-3 rounded-md bg-white px-3 py-1.5 text-[10px] font-medium shadow-sm;
+  }
+
+  .product-meta {
+    @apply mt-3 flex justify-between gap-2 text-xs text-slate-500;
+  }
+
+  .product-meta span:last-child {
+    @apply text-amber-600;
+  }
+
+  .product-title {
+    @apply my-2 block text-sm font-medium text-slate-900 md:text-base;
+  }
+
+  .price-row {
+    @apply flex items-center justify-between gap-3;
+  }
+
+  .price-row button {
+    @apply grid h-9 w-9 place-items-center rounded-lg border-0 bg-[#173338] text-white transition hover:bg-emerald-700;
+  }
+
+  /* ======================================
+     PROMO
+  ====================================== */
+
+  .promo {
+    @apply mb-14 rounded-xl bg-[#153e3e] py-14 text-white;
+  }
+
+  .promo h2 {
+    @apply my-3 text-3xl font-medium md:text-4xl;
+  }
+
+  .promo p {
+    @apply text-[#c2d8d2];
+  }
+
+  .promo .eyebrow {
+    @apply text-[#a9d9cb];
+  }
+
+  /* ======================================
+     FOOTER
+  ====================================== */
+
+  .footer {
+    @apply bg-[#f5f7f5] pb-5 pt-12;
+  }
+
+  .footgrid {
+    @apply grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr];
+  }
+
+  .footgrid h2 {
+    @apply text-3xl font-light;
+  }
+
+  .footgrid p,
+  .footgrid span {
+    @apply text-sm text-slate-500;
+  }
+
+  .footgrid > div {
+    @apply flex flex-col gap-3;
+  }
+
+  .footgrid strong {
+    @apply mb-2 font-medium;
+  }
+
+  .footgrid a {
+    @apply text-sm transition hover:text-emerald-700;
+  }
+
+  .copyright {
+    @apply mt-9 border-t border-slate-200 pt-5 text-xs text-slate-500;
+  }
+
+  /* ======================================
+     SHOP PAGE
+  ====================================== */
+
+  .page-heading {
+    @apply mb-9;
+  }
+
+  .page-heading h1 {
+    @apply my-3 text-3xl font-medium tracking-tight md:text-4xl;
+  }
+
+  .page-heading p,
+  .muted {
+    @apply text-sm text-slate-500;
+  }
+
+  .catalog {
+    @apply grid grid-cols-1 gap-9 md:grid-cols-[230px_minmax(0,1fr)];
+  }
+
+  .filters {
+    @apply self-start rounded-xl border border-slate-200 p-5;
+  }
+
+  .filters h3 {
+    @apply mb-5 text-lg font-medium;
+  }
+
+  .filters label {
+    @apply mb-3 mt-5 block text-sm font-medium;
+  }
+
+  .filters input:not([type="range"]),
+  .toolbar input,
+  .toolbar select,
+  .catalog-bar select,
+  .form-grid input,
+  .modal-form input,
+  .modal-form select {
+    @apply w-full rounded-lg border border-slate-200 bg-white p-3 text-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100;
+  }
+
+  .filters input[type="range"] {
+    @apply w-full accent-emerald-700;
+  }
+
+  .filter {
+    @apply block border-0 bg-transparent py-2 text-sm text-slate-500 hover:text-emerald-700;
+  }
+
+  .filter.active {
+    @apply font-semibold text-emerald-700;
+  }
+
+  .clear {
+    @apply mt-4 border-0 bg-transparent text-sm text-emerald-700 underline;
+  }
+
+  .catalog-bar {
+    @apply mb-5 flex flex-wrap items-center justify-between gap-3 text-sm text-slate-500;
+  }
+
+  .catalog-bar select {
+    @apply w-auto;
+  }
+
+  /* ======================================
+     PAGINATION
+  ====================================== */
+
+  .pagination {
+    @apply mt-9 flex justify-center gap-2;
+  }
+
+  .pagination button {
+    @apply h-10 w-10 rounded-lg border border-slate-200 bg-white text-sm;
+  }
+
+  .pagination .selected {
+    @apply bg-[#173338] text-white;
+  }
+
+  /* ======================================
+     EMPTY STATES
+  ====================================== */
+
+  .empty {
+    @apply flex min-h-[280px] flex-col items-center justify-center gap-3 text-center;
+  }
+
+  .empty h2,
+  .empty h3 {
+    @apply m-0;
+  }
+
+  .empty p {
+    @apply text-slate-500;
+  }
+
+  .back {
+    @apply mb-8 inline-flex items-center gap-2 text-sm text-slate-500 hover:text-emerald-700;
+  }
+
+  /* ======================================
+     PRODUCT DETAILS
+  ====================================== */
+
+  .detail {
+    @apply grid grid-cols-1 items-start gap-8 md:grid-cols-2 lg:gap-14;
+  }
+
+  .detail-image {
+    @apply h-[400px] overflow-hidden rounded-xl bg-slate-100 md:h-[520px];
+  }
+
+  .detail-image img {
+    @apply h-full w-full object-cover;
+  }
+
+  .thumbnails {
+    @apply mt-4 flex flex-wrap gap-3;
+  }
+
+  .thumbnails button {
+    @apply h-[85px] w-[75px] overflow-hidden rounded-lg border-2 border-transparent bg-slate-100 p-0;
+  }
+
+  .thumbnails button.active {
+    @apply border-emerald-600;
+  }
+
+  .thumbnails img {
+    @apply h-full w-full object-cover;
+  }
+
+  .detail-copy {
+    @apply pt-0 md:pt-5;
+  }
+
+  .detail-copy h1 {
+    @apply my-4 text-3xl font-medium leading-tight tracking-tight lg:text-4xl;
+  }
+
+  .rating {
+    @apply mb-5 text-base text-amber-600;
+  }
+
+  .rating span {
+    @apply ml-3 text-xs text-slate-500;
+  }
+
+  .detail-price {
+    @apply my-5 text-3xl font-semibold;
+  }
+
+  .detail-copy p {
+    @apply leading-8 text-slate-500;
+  }
+
+  .detail-copy .stock {
+    @apply font-medium text-emerald-700;
+  }
+
+  .detail-copy .warning {
+    @apply font-medium text-amber-600;
+  }
+
+  /* ======================================
+     QUANTITY SELECTOR
+  ====================================== */
+
+  .qty {
+    @apply my-4 inline-flex items-center gap-5 rounded-lg border border-slate-200 p-2 font-medium;
+  }
+
+  .qty button {
+    @apply grid h-7 w-7 place-items-center rounded-md border-0 bg-slate-100 hover:bg-slate-200;
+  }
+
+  .assurance {
+    @apply mt-6 border-t border-slate-200 pt-5 text-xs text-slate-500;
+  }
+
+  /* ======================================
+     CART PAGE
+  ====================================== */
+
+  .cart-layout {
+    @apply grid grid-cols-1 items-start gap-9 lg:grid-cols-[minmax(0,1fr)_330px];
+  }
+
+  .cart-list {
+    @apply overflow-hidden rounded-xl border border-slate-200;
+  }
+
+  .cart-item {
+    @apply flex flex-wrap items-center gap-5 border-b border-slate-100 p-5 last:border-b-0;
+  }
+
+  .cart-item > img {
+    @apply h-[90px] w-[75px] rounded-lg object-cover sm:h-[110px] sm:w-[95px];
+  }
+
+  .cart-info {
+    @apply flex min-w-[130px] flex-1 flex-col gap-2;
+  }
+
+  .cart-info strong {
+    @apply text-sm font-medium;
+  }
+
+  .cart-info span {
+    @apply text-xs text-slate-500;
+  }
+
+  .cart-info b {
+    @apply text-base font-semibold;
+  }
+
+  .cart-item .qty {
+    @apply m-0 gap-3;
+  }
+
+  .icon-button {
+    @apply grid place-items-center border-0 bg-transparent p-2 text-red-600 hover:text-red-800;
+  }
+
+  /* ======================================
+     ORDER SUMMARY
+  ====================================== */
+
+  .summary {
+    @apply rounded-xl border border-slate-200 bg-[#fafbf9] p-6;
+  }
+
+  .summary h3 {
+    @apply mb-6 text-lg font-medium;
+  }
+
+  .summary > div {
+    @apply my-4 flex justify-between gap-3 text-sm;
+  }
+
+  .summary > div span {
+    @apply text-slate-500;
+  }
+
+  .summary hr {
+    @apply my-5 border-0 border-t border-slate-200;
+  }
+
+  .summary .total {
+    @apply text-lg font-semibold;
+  }
+
+  .summary .total span {
+    @apply text-slate-900;
+  }
+
+  /* ======================================
+     CHECKOUT FORM
+  ====================================== */
+
+  .checkout-form {
+    @apply rounded-xl border border-slate-200 p-5 md:p-8;
+  }
+
+  .checkout-form h3 {
+    @apply mb-6 text-xl font-medium;
+  }
+
+  .checkout-form h3:not(:first-child) {
+    @apply mt-9;
+  }
+
+  .form-grid {
+    @apply grid grid-cols-1 gap-5 sm:grid-cols-2;
+  }
+
+  .form-grid label {
+    @apply flex flex-col gap-2 text-sm font-medium;
+  }
+
+  .form-grid .span2 {
+    @apply sm:col-span-2;
+  }
+
+  .form-grid input {
+    @apply font-normal;
+  }
+
+  .error {
+    @apply text-xs text-red-600;
+  }
+
+  .payment-options {
+    @apply flex flex-col gap-4;
+  }
+
+  .payment-options label {
+    @apply flex cursor-pointer items-center gap-3 rounded-lg border border-slate-200 p-4 text-sm hover:border-emerald-600;
+  }
+
+  .payment-options input {
+    @apply accent-emerald-700;
+  }
+
+  /* ======================================
+     ORDER SUCCESS
+  ====================================== */
+
+  .success {
+    @apply mx-auto flex max-w-[600px] flex-col items-center gap-4 px-5 py-16 text-center;
+  }
+
+  .success h1 {
+    @apply my-1 text-3xl font-medium md:text-4xl;
+  }
+
+  .success p {
+    @apply leading-8 text-slate-500;
+  }
+
+  .success-order {
+    @apply my-4 flex w-full flex-col gap-3 rounded-xl bg-emerald-50 p-6;
+  }
+
+  .success-order strong {
+    @apply text-xl font-semibold text-emerald-700;
+  }
+}
+
+/* =========================================
+   MOBILE NAVBAR
+========================================= */
+
+@media (max-width: 760px) {
+  .navlinks {
+    @apply absolute left-0 right-0 top-[77px] hidden flex-col items-stretch bg-white p-6 shadow-xl;
+  }
+
+  .navlinks.open {
+    @apply flex;
+  }
+
+  .mobile-menu {
+    @apply block;
+  }
+}
+/* Light & Minimal Navbar */
+.header .brand {
+  @apply text-[27px] font-light tracking-tight;
+}
+
+.header .navlinks,
+.header .navlinks a,
+.header .navlinks a.active {
+  @apply text-[15px] font-normal tracking-normal;
+}
